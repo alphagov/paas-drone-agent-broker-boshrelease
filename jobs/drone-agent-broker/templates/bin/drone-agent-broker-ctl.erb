@@ -1,0 +1,34 @@
+#!/bin/bash
+
+set -e -u -o pipefail
+
+RUN_DIR=/var/vcap/sys/run/drone-agent-broker
+LOG_DIR=/var/vcap/sys/log/drone-agent-broker
+PIDFILE=${RUN_DIR}/pid
+
+case $1 in
+
+  start)
+
+    mkdir -p "$RUN_DIR" "$LOG_DIR"
+    chown -R vcap:vcap "$RUN_DIR" "$LOG_DIR"
+
+    echo "$$" > "$PIDFILE"
+
+    exec /var/vcap/packages/drone-agent-broker/bin/paas-drone-agent-broker \
+      --config=/var/vcap/packages/drone-agent-broker/config/drone-agent-broker-config.json \
+      >>  $LOG_DIR/drone-agent-broker.stdout.log \
+      2>> $LOG_DIR/drone-agent-broker.stderr.log
+    ;;
+
+  stop)
+    kill -9 "$(< "$PIDFILE")"
+    rm -f "$PIDFILE"
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+    ;;
+
+esac

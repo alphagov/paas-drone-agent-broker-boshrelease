@@ -1,0 +1,9 @@
+---
+name: drone-agent-broker
+
+templates:
+  bin/drone-agent-broker-ctl.erb: bin/drone-agent-broker-ctl
+
+packages: []
+
+properties: {}

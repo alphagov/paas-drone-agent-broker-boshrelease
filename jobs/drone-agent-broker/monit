@@ -1,0 +1,5 @@
+check process drone-agent-broker
+  with pidfile /var/vcap/sys/run/drone-agent-broker/drone-agent-broker.pid
+  start program "/var/vcap/jobs/drone-agent-broker/bin/drone-agent-broker-ctl start"
+  stop program "/var/vcap/jobs/drone-agent-broker/bin/drone-agent-broker-ctl stop"
+  group vcap
