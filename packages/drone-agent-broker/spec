@@ -1,0 +1,8 @@
+---
+name: drone-agent-broker
+
+dependencies:
+  - golang
+
+files:
+  - paas-drone-agent-broker/**/*

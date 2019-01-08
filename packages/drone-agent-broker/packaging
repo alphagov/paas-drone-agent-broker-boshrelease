@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e -x -u -o pipefail
+
+GOROOT=$(readlink -nf /var/vcap/packages/golang)
+export GOROOT
+export PATH=${GOROOT}/bin:${PATH}
+
+echo "Building Drone Agent Service Broker..."
+GO111MODULES=on go install -mod=vendor
+
