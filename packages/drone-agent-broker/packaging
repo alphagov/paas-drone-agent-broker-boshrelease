@@ -7,5 +7,5 @@ export GOROOT
 export PATH=${GOROOT}/bin:${PATH}
 
 echo "Building Drone Agent Service Broker..."
-GO111MODULES=on go install -mod=vendor
+GO111MODULE=on go install -mod=vendor
 
