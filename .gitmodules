@@ -1,4 +1,4 @@
 [submodule "src/paas-drone-agent-broker"]
 	path = src/paas-drone-agent-broker
-	url = git@github.com:richardTowers/paas-drone-agent-broker.git
+	url = git@github.com:alphagov/paas-drone-agent-broker.git
 	branch = initial
