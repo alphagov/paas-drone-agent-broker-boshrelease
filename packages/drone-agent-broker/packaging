@@ -7,5 +7,6 @@ export GOROOT
 export PATH=${GOROOT}/bin:${PATH}
 
 echo "Building Drone Agent Service Broker..."
+cd ${BOSH_COMPILE_TARGET}/paas-drone-agent-broker/
 GO111MODULE=on go install -mod=vendor
 
