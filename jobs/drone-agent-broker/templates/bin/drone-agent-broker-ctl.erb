@@ -16,7 +16,7 @@ case $1 in
     echo "$$" > "$PIDFILE"
 
     exec /var/vcap/packages/drone-agent-broker/bin/paas-drone-agent-broker \
-      --config=/var/vcap/packages/drone-agent-broker/config/drone-agent-broker-config.json \
+      --config=/var/vcap/jobs/drone-agent-broker/config/drone-agent-broker-config.json \
       >>  $LOG_DIR/drone-agent-broker.stdout.log \
       2>> $LOG_DIR/drone-agent-broker.stderr.log
     ;;
