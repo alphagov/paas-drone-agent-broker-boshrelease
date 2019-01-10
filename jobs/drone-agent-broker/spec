@@ -3,8 +3,49 @@ name: drone-agent-broker
 
 templates:
   bin/drone-agent-broker-ctl.erb: bin/drone-agent-broker-ctl
+  config/drone-agent-broker-config.json.erb: config/drone-agent-broker-config.json
 
 packages:
   - drone-agent-broker
 
-properties: {}
+properties:
+  drone-agent-broker.basic_auth_username:
+    description: "Basic auth username"
+    default: "drone-agent-broker"
+  drone-agent-broker.basic_auth_password:
+    description: "Basic auth password"
+    default: "drone-agent-broker"
+  drone-agent-broker.log_level:
+    description: "Log level"
+    default: "INFO"
+  drone-agent-broker.aws_region:
+    description: "AWS region (for example eu-west-1)"
+    default: "eu-west-1"
+  drone-agent-broker.security_group_id:
+    description: "AWS security group ID (security group should be created separately and needs to have egress to the internet)"
+    default: "sg-0a1b0216ef7084cc0"
+  drone-agent-broker.catalog:
+    description: "Broker catalog (including services and plans)"
+    default: {
+      "services": [{
+        "id": "uuid-1",
+        "name": "DroneAgent",
+        "description": "Drone Client EC2 Instance",
+        "bindable": true,
+        "plan_updateable": true,
+        "requires": [],
+        "metadata": {},
+        "plans": [{
+          "id": "uuid-2",
+          "name": "t2.nano",
+          "description": "A single Drone agent running on an EC2 t2.nano instance",
+          "metadata": {}
+        },
+        {
+          "id": "uuid-3",
+          "name": "t2.small",
+          "description": "A single Drone agent running on an EC2 t2.small instance",
+          "metadata": {}
+        }]
+      }]
+    }

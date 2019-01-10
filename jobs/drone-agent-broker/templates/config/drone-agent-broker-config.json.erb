@@ -1,0 +1,8 @@
+{
+  "basic_auth_username": "<%= p('drone-agent-broker.basic_auth_username') %>",
+  "basic_auth_password": "<%= p('drone-agent-broker.basic_auth_password') %>",
+  "log_level": "<%= p('drone-agent-broker.log_level') %>",
+  "aws_region": "<%= p('drone-agent-broker.aws_region') %>",
+  "security_group_id": "<%= p('drone-agent-broker.security_group_id') %>",
+  "catalog": <%= JSON.dump(p('drone-agent-broker.catalog')) %>
+}
