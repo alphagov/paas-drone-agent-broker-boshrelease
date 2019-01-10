@@ -5,8 +5,11 @@ set -e -x -u -o pipefail
 GOROOT=$(readlink -nf /var/vcap/packages/golang)
 export GOROOT
 export PATH=${GOROOT}/bin:${PATH}
+export GOPATH=/var/vcap/go
+export GOCACHE=/var/vcap/gocache
+export GO111MODULE=on
 
 echo "Building Drone Agent Service Broker..."
 cd ${BOSH_COMPILE_TARGET}/paas-drone-agent-broker/
-GO111MODULE=on GOCACHE=on go install -mod=vendor
+go install -mod=vendor
 
