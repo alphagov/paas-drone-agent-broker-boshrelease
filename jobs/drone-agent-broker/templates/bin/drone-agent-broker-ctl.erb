@@ -4,7 +4,7 @@ set -e -u -o pipefail
 
 RUN_DIR=/var/vcap/sys/run/drone-agent-broker
 LOG_DIR=/var/vcap/sys/log/drone-agent-broker
-PIDFILE=${RUN_DIR}/pid
+PIDFILE=/var/vcap/sys/run/drone-agent-broker/drone-agent-broker.pid
 
 case $1 in
 
