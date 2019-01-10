@@ -26,6 +26,12 @@ properties:
   drone-agent-broker.security_group_id:
     description: "AWS security group ID (security group should be created separately and needs to have egress to the internet)"
     default: "sg-0a1b0216ef7084cc0"
+  drone-agent-broker.subnet_id:
+    description: "AWS subnet ID (subnet should be created separately)"
+  drone-agent-broker.agent_ami_name:
+    description: "AWS machine image name (should be the latest version of https://aws.amazon.com/marketplace/server/configuration?productId=0d1e0bd0-eaea-4397-9a3a-c56f861d2a14 )"
+  drone-agent-broker.agent_ami_owner:
+    description: "AWS machine image owner (from https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#Images:visibility=public-images;ownerAlias=595879546273;sort=name )"
   drone-agent-broker.catalog:
     description: "Broker catalog (including services and plans)"
     default: {

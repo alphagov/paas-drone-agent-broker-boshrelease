@@ -5,5 +5,8 @@
   "log_level": "<%= p('drone-agent-broker.log_level') %>",
   "aws_region": "<%= p('drone-agent-broker.aws_region') %>",
   "security_group_id": "<%= p('drone-agent-broker.security_group_id') %>",
+  "subnet_id": "<%= p('drone-agent-broker.subnet_id') %>",
+  "agent_ami_name": "<%= p('drone-agent-broker.agent_ami_name') %>",
+  "agent_ami_owner": "<%= p('drone-agent-broker.agent_ami_owner') %>",
   "catalog": <%= JSON.dump(p('drone-agent-broker.catalog')) %>
 }
