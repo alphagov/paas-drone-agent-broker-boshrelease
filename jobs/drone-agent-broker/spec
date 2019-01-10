@@ -9,6 +9,8 @@ packages:
   - drone-agent-broker
 
 properties:
+  drone-agent-broker.port:
+    default: 80
   drone-agent-broker.basic_auth_username:
     description: "Basic auth username"
     default: "drone-agent-broker"
